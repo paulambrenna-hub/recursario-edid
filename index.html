@@ -23,22 +23,72 @@
 const { useState, useEffect } = React;
 
 // ─── DATOS INICIALES ──────────────────────────────────────────────────────────
-const DEFAULT_GENERAL_TAGS = [
-  { id:"vg", label:"Violencia de género", color:"#be185d", bg:"#fce7f3" },
-  { id:"disc", label:"Discapacidad", color:"#5b21b6", bg:"#ede9fe" },
-  { id:"pm", label:"Persona mayor", color:"#9a3412", bg:"#ffedd5" },
-];
+const DEFAULT_GENERAL_TAGS = [{"id": "vg", "label": "Violencia de género", "color": "#be185d", "bg": "#fce7f3"}, {"id": "disc", "label": "Discapacidad", "color": "#5b21b6", "bg": "#ede9fe"}, {"id": "pm", "label": "Persona mayor", "color": "#9a3412", "bg": "#ffedd5"}];
 
 const DEFAULT_SPECIFIC_TAGS = ["urgente", "24hs", "legal", "patrocinio", "civil", "penal", "gratuito", "habitacional", "subsidio", "económico", "salud", "médico", "turno", "psicológico", "interdisciplinario", "informe socioambiental", "denuncia", "derivación", "TAD", "judicial", "querella", "amenazas", "alimentos", "divorcio", "violencia familiar", "medida de protección", "niños/as", "maternidad", "embarazo", "primera infancia", "educación", "adicciones", "refugio", "calle", "parador", "desalojo", "discapacidad visual", "LSA", "intérprete", "accesibilidad", "certificado", "vida independiente", "intelectual", "laboral", "rehabilitación", "migrantes", "refugiados", "asistencia social", "app", "domicilio", "grupos vulnerables", "provincia", "centro de día", "hogar", "fundación"];
 
-const DEFAULT_RESOURCES = [
-  { id:1, codigo:"A1", title:"Policía – UCAV (Unidad Central de Asistencia a la Víctima)",
-    description:"Atención 365 días las 24hs. Sede en Charcas. Tienen médico legista. Equipo interdisciplinario: psicólogas/os, TS y abogados/as. También hacen informes socioambientales para fuero civil o penal a pedido por oficio (presencial o virtual).
+const DEFAULT_RESOURCES = [{"id": 1773330282524, "title": "AGD Asistentes gerontológicos a domicilio GCABA", "codigo": "", "description": "MAIL Y TAD: Primero se sube a TAD. Se envía Mail a asesoriaintegraldecuidados@buenosaires.gob.ar 
+y se envia con denuncia e informes y carátula TAD también.
 
-Para acompañamientos a EDID (Género/Protección Familiar): judicial.supergenero@gmail.com",
-    generalTags:["vg", "disc", "pm"], specificTags:["urgente", "24hs", "interdisciplinario", "psicológico", "legal", "informe socioambiental"], createdAt:"2026-01-01" },
-  { id:2, codigo:"A2", title:"Botón Antipánico – Central de Alarmas",
-    description:"Tel: 4309-9849. Entregas: 5789-8949 (pedir sector de entregas). En la mayoría de los casos instalan una APP.
+El servicio de Asistencia Gerontológica Domiciliaria ofrece atención domiciliaria gratuita para personas
+mayores en situación de vulnerabilidad socioeconómica, residentes en la Ciudad, donde técnicos
+capacitados y acreditados por la Secretaria de Bienestar Integral, brindan horas de asistencia
+gerontológica en el domicilio del beneficiario.
+Los servicios se renuevan anualmente, previa evaluación realizada por el equipo interdisciplinario del
+programa.
+Los objetivos son facilitar la realización de las actividades básicas habituales que la persona mayor no
+pueda realizar por sí solo, respetando su capacidad de decisión; Promover cambios conductuales que
+sostengan la autonomía y mejoren la calidad de vida de las personas mayores; Facilitar el desarrollo de
+actividades sociales estimulando la comunicación con los miembros de la familia, amigos y vecinos.
+Identificar, evaluar, acreditar y actualizar un equipo de técnicos gerontológicos con idoneidad y
+capacidad para llevar adelante las acciones de la atención al adulto mayor.", "generalTags": ["vg", "pm"], "specificTags": [], "createdAt": "2026-03-12"}, {"id": 1773330193934, "title": "HOGARES GCABA para PM", "codigo": "", "description": "El mail es uiadmisionprogramas@gmail.com
+Requisitos traer los estudios que les solicitan
+Ellos tienen las órdenes médicas para que retiren
+lunes a viernes de 9 a 15
+CABA:
+ Hogar San Martín
+Dirección: Av. Warnes 2650, Paternal, CABA.
+Teléfonos: 4523-9868 / 9878 / 9892
+• Hogar Rawson
+Dirección: Av. Amancio Alcorta 1402, Barracas, CABA.
+Teléfonos: 4305-2636 / 4676
+
+Requisitos
+• Cumplir, conforme a la valoración integral del Equipo Interdisciplinario del Área Admisión de la Dirección General de Políticas Asistenciales para Personas Mayores de la Secretaría de Bienestar Integral , con los indicadores exigidos para el ingreso en el Centro Residencial. El mismo contempla las siguientes variables: situación socio-familiar, situación de incapacidad física y psíquica, situación económica, vivienda, reagrupamiento familiar e integración en la comunidad, edad y evaluación de otras circunstancias.
+• Tener domicilio en la Ciudad Autónoma de Buenos Aires o justificar su residencia en ella durante los dos últimos años, por cualquier medio fehaciente.
+• Ser mayor de 60 años.
+• No poseer obra social o de salud que cubra la prestación de internación geriátrica, en forma directa o mediante subsidio, exceptuándose los casos en que exista un convenio de la misma con el Gobierno de la Ciudad Autónoma de Buenos Aires.
+• Carecer de una red familiar o social continente que resulte obligada a darle asistencia y cuidado para realizar las actividades de la vida diaria de manera tal que la persona mayor pueda desenvolverse de manera digna y satisfactoria.
+• Carecer de bienes propios y de ingresos económicos suficientes para su supervivencia. En el caso de que percibieran haberes previsionales de cualquier modalidad o tuvieran asignada pensión o dinero del exterior, o poseyeran un bien que produjera alguna rentabilidad, el monto total de ingresos por todo concepto no podrá superar el valor expresado en pesos de la medición actualizada de la línea de indigencia.
+• No poseer vivienda.
+• No padecer trastornos mentales o de conducta que produzcan problemas de integración social.
+Hogares de Residencia Permanente
+Los hogares de residencia permanente Son alojamiento de puertas abiertas y atención integral para
+Personas Mayores. Se atienden las necesidades cotidianas del adulto mayor en forma integral y
+continua, promoviendo e incrementando la calidad de vida y evitando situaciones de marginación y
+exclusión social.
+Se requiere del consentimiento de la persona mayor a ser alojada y el compromiso de sus familiares de
+colaborar en el bienestar del adulto mayor y participar con la institución que brinda la prestación.
+Los Servicios prestados son: Alojamiento, alimentación, atención kinesiológica, psicológica y
+odontológica, y servicio de enfermería las 24 horas. Atención de la situación social y familiar de los
+residentes. Talleres de recuperación de la lectura y la escritura. Actividades recreativas, culturales o
+labores terapéuticas y salidas recreativas", "generalTags": ["vg", "pm"], "specificTags": [], "createdAt": "2026-03-12"}, {"id": 1773328593115, "title": "AGD- Asistencia Geróntologica Domiciliaria GCABA", "codigo": "", "description": "Asistencia Geróntologica Domiciliaria COMPLETAR", "generalTags": [], "specificTags": [], "createdAt": "2026-03-12"}, {"id": 1773326527599, "title": "SUBSIDIO VIVIR EN CASA", "codigo": "C2", "description": "SUBSIDIO VIVIR EN CASA (a marzo 2026: $10.000 a $140.000):
+
+Tener en cuenta: va a tener que ir la PM por lo menos dos veces: a entrevista con ellos, y luego a buscar a Corrientes y Larrea Bco. Ciudad la tarjeta de cobro la primera vez. 
+Luego todos los meses el recibo del hotel o lo que sea hay que llevarlo al programa pero puede ir otra persona.
+Puede ser que si son dos PM viviendo juntos/as, le den a cada uno 100 por ej. También si luego no alcanza que se piense en amparo con Defensoria del Pueblo CABA.
+Requisitos a presentar:
+De la persona: DNI, último recibo de haberes, certificado de domicilio.
+De la propiedad: factura/recibo de alquiler con detalles, expensas y servicios.
+Del propietario: ABL, DNI.
+
+Docs en PDF individuales. Instancias: 1) Presentación de documentación. 2) Entrevista en Belgrano 858.
+
+Cobro: Banco Ciudad (sucursal Corrientes y Larrea). Rendición mensual en Belgrano 858 desde 7 días hábiles del cobro.", "generalTags": ["vg", "pm"], "specificTags": ["subsidio", "habitacional"], "createdAt": "2026-03-12"}, {"id": 1, "codigo": "A1", "title": "Policía – UCAV (Unidad Central de Asistencia a la Víctima)", "description": "Atención 365 días las 24hs. 
+Sede en Charcas. Tienen médico legista. Equipo interdisciplinario: psicólogas/os, TS y abogados/as. 
+También hacen informes socioambientales para fuero civil o penal a pedido por oficio (presencial o virtual).
+
+Para acompañamientos a EDID (Género/Protección Familiar): judicial.supergenero@gmail.com", "generalTags": ["vg", "disc", "pm"], "specificTags": ["urgente", "24hs", "interdisciplinario", "psicológico", "legal", "informe socioambiental"], "createdAt": "2026-01-01"}, {"id": 2, "codigo": "A2", "title": "Botón Antipánico – Central de Alarmas", "description": "Tel: 4309-9849. Entregas: 5789-8949 (pedir sector de entregas). En la mayoría de los casos instalan una APP.
 
 ⚠️ La APP sigue funcionando hasta que la Central reciba oficio de fiscalía dando de baja la medida.
 
@@ -52,10 +102,13 @@ PUNTOS DE ENTREGA:
 • Parque Patricios (Zavaleta 425): Lun-Vie 08-15hs.
 • Charcas 2850 (Sup. VFG): Lun-Vie 10-17hs.
 
-ASM - Guille: seguimientodemedidas@fiscalias.gob.ar — para entregas en domicilio, reposición de equipo/cargador, eventos SOS.",
-    generalTags:["vg", "disc", "pm"], specificTags:["urgente", "medida de protección", "domicilio", "app", "24hs"], createdAt:"2026-01-01" },
-  { id:3, codigo:"A3", title:"CJM – Centros de Justicia de la Mujer",
-    description:"Toman denuncias. Tienen policía, botón antipánico, MPT. Equipo interdisciplinario.
+ASM - Guille: seguimientodemedidas@fiscalias.gob.ar — para entregas en domicilio, reposición de equipo/cargador, eventos SOS.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["urgente", "medida de protección", "domicilio", "app", "24hs"], "createdAt": "2026-01-01"}, {"id": 3, "codigo": "A3", "title": "CJM – Centros de Justicia de la Mujer", "description": "Coordinadora Elisa Betzel
+mail: cjm@jusbaires.gob.ar   para pedir IDR o consultas.
+Toman denuncias. Tienen policía, botón antipánico, MPT. Equipo interdisciplinario.
+tienen tres programas (https://cjmujer.gob.ar/programas/)
+- Programa para la Atención de Derechos de las Personas con Discapacidad.
+- Programa de Prevención de Noviazgos Violentos (con encuentros)
+- Programa de Acceso a Derechos para Personas Travestis, Transexuales y/o Transgénero 
 
 SEDES:
 • Caballito – Yerbal 31: 8-20hs. Salita exclusiva para niños/as con cuidadora.
@@ -65,26 +118,20 @@ SEDES:
 • Flores – Av. Rivadavia 7202: Lun-Vie 9-14hs.
 • Defensoría del Pueblo – Av. Belgrano 673: Lun/Mié/Vie 10-16hs.
 • Villa 21-24 – Pasaje Río Cuarto 3331: Mar y Jue 10-13hs.
-• Barrio Ricciardelli – Parr. Madre del Pueblo, Manzana 3, Casa 1: Mié 10-13hs.",
-    generalTags:["vg", "disc", "pm"], specificTags:["denuncia", "interdisciplinario", "niños/as"], createdAt:"2026-01-01" },
-  { id:4, codigo:"A4", title:"DGM – CIMS (Dirección General de la Mujer)",
-    description:"Derivación por TAD. Se arma el word modelo de CIMs, se pasa a PDF y se junta con la denuncia e informes existentes para subir como un solo archivo a TAD.
+• Barrio Ricciardelli – Parr. Madre del Pueblo, Manzana 3, Casa 1: Mié 10-13hs.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["denuncia", "interdisciplinario", "niños/as"], "createdAt": "2026-01-01"}, {"id": 4, "codigo": "A4", "title": "DGM – CIMS (Dirección General de la Mujer)", "description": "Derivación por TAD. Se arma el word modelo de CIMs, se envia por Correo a MARIAN y ella lo pasa a PDF lo  junta con la denuncia e informes existentes, ese pdf se lo manda a la referente y ella lo sube a TAD.
+Se carga en Kiwi derivación Psicológica. 
 
-Hay un word en el drive con el listado de CIMS.",
-    generalTags:["vg"], specificTags:["derivación", "TAD", "habitacional"], createdAt:"2026-01-01" },
-  { id:5, codigo:"A5a", title:"Patrocinio Civil – Procuración General CABA",
-    description:"Contacto: Mabel Grela (mgrela@buenosaires.gob.ar) y Paula Juárez (pjuarez@buenosaires.gob.ar).
-Sede: Uruguay 432, CABA. Tel: 43239200 int. 7521/7522/7610. Lun-Vie 10-13hs.
-Derivación: Mariana manda mail.
+Hay un word en el drive con el listado de CIMS actualizado", "generalTags": ["vg", "disc", "pm"], "specificTags": ["derivación", "TAD", "habitacional", "civil", "patrocinio", "legal", "psicológico"], "createdAt": "2026-01-01"}, {"id": 5, "codigo": "A5a", "title": "Patrocinio Civil – Procuración General CABA", "description": "Contacto: Mabel Grela (mgrela@buenosaires.gob.ar) y Paula Juárez (pjuarez@buenosaires.gob.ar).
+Sede: Uruguay 432, CABA. Tel: 43239200 int. 7521/7522/7610. Lun-Vie 10-13hs. NO VAN A DOMICILIO
+Derivación: Mariana manda mail (referente arma el mail, tiene que tener los datos de la persona y que quiere, por ej renovar medidas)
 
 SUPUESTO 1 – Expediente civil por VIOLENCIA FAMILIAR: Solo requiere domicilio en CABA. Sin requisito económico.
 
 SUPUESTO 2 – Otras causas civiles/familiares (alimentos, régimen comunicacional, resp. parental, desalojo, etc.): Requisitos: ingresos ≤ 2 SMVM, propiedad ≤ $160.000, automotor > 12 años.
 
-🚨 URGENTE: Llamar directo a Mabel Grela al 15-3191-4398.",
-    generalTags:["vg"], specificTags:["legal", "patrocinio", "civil", "alimentos", "gratuito"], createdAt:"2026-01-01" },
-  { id:6, codigo:"A5b", title:"Patrocinio Civil y Penal – Defensoría del Pueblo CABA",
-    description:"Contacto: Alessandra Cutulli (1144121565). Derivación: accesoajusticiaygv@defensoria.org.ar.
+🚨 URGENTE: Llamar directo a Mabel Grela al 15-3191-4398.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["legal", "patrocinio", "civil", "alimentos", "gratuito", "violencia familiar"], "createdAt": "2026-01-01"}, {"id": 6, "codigo": "A5b", "title": "Patrocinio Civil y Penal – Defensoría del Pueblo CABA", "description": "Contacto: Alessandra Cutulli (1144121565). Derivación: accesoajusticiaygv@defensoria.org.ar.
+Ahi Mariana manda el mail derivando y habla con Alessandra para avisarle.
+
 Consejo DDHH: consejoddhh@defensoria.org.ar. Tels: 1522428147 / 1522428633 / 0800 999 3722.
 Lun-Vie 10-17hs. Venezuela 538.
 
@@ -92,10 +139,7 @@ PROGRAMA VIOLENCIA DE GÉNERO (civil y penal): Para todas las mujeres víctimas 
 
 PROGRAMA GRUPOS VULNERABLES (civil): Para habitantes de villas, conventillos, asentamientos, hoteles.
 
-Barrio Padre Mujica (Punto Violeta): Jueves – turno al 11-3147-7014.",
-    generalTags:["vg"], specificTags:["legal", "patrocinio", "civil", "penal", "grupos vulnerables", "gratuito"], createdAt:"2026-01-01" },
-  { id:7, codigo:"A5c", title:"Patrocinio Civil – Defensoría de la Nación (Letrados Móviles)",
-    description:"La persona debe llamar o presentarse directamente (es requisito). Mariana manda mail por formalidad.
+Barrio Padre Mujica (Punto Violeta): Jueves – turno al 11-3147-7014.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["legal", "patrocinio", "civil", "penal", "grupos vulnerables", "gratuito"], "createdAt": "2026-01-01"}, {"id": 7, "codigo": "A5c", "title": "Patrocinio Civil – Defensoría de la Nación (Letrados Móviles)", "description": "La persona debe llamar o presentarse directamente (es requisito). Mariana manda mail por formalidad.
 Asesoran y patrocinan. En bienes solo asesoran. Hacen divorcio (sin parte patrimonial).
 
 Horario: 7:30-13:30hs. Bartolomé Mitre 648.
@@ -105,18 +149,17 @@ Unidad 2: 7090-4982 / ulmcivil2@mpd.gov.ar
 Unidad 3: 7090-4983 / ulmcivil3@mpd.gov.ar
 Unidad 4: 7090-4984 / ulmcivil4@mpd.gov.ar
 
-⚠️ Ver turnos publicados por año para saber a qué unidad derivar.",
-    generalTags:[], specificTags:["legal", "patrocinio", "civil", "divorcio", "gratuito"], createdAt:"2026-01-01" },
-  { id:8, codigo:"A5d", title:"Patrocinio Civil – CPACF (Colegio Público de Abogados CABA)",
-    description:"Tel: 4379-8700 int. 249. Mail: cons.juridico@cpacf.org.ar. Mar/Mié/Jue 9-13hs (por orden de llegada y cupo).
+⚠️ Ver turnos publicados por año para saber a qué unidad derivar.", "generalTags": [], "specificTags": ["legal", "patrocinio", "civil", "divorcio", "gratuito"], "createdAt": "2026-01-01"}, {"id": 8, "codigo": "A5d", "title": "Patrocinio Civil – CPACF (Colegio Público de Abogados CABA)", "description": "Tel: 4379-8700 int. 249. Mail: cons.juridico@cpacf.org.ar. Mar/Mié/Jue 9-13hs (por orden de llegada y cupo).
 
 Temas: violencia familiar, alimentos, régimen de comunicación parental, cuidado personal, guarda, rectificación de partidas, divorcios.
 
-Criterio económico: hasta 2 SMVM. Asesoran a todas y luego se evalúa.",
-    generalTags:["vg"], specificTags:["legal", "patrocinio", "civil", "alimentos", "divorcio", "gratuito"], createdAt:"2026-01-01" },
-  { id:9, codigo:"A5e", title:"Patrocinio Penal – Ministerio de Justicia CABA (Hospital de Derechos)",
-    description:"Sede: Av. Rivadavia 2690 (Hospital de Derechos).
-Derivación: Mariana envía mail DIARIO a patrocinio.victimas@buenosaires.gob.ar con: Nº de caso, fiscalía interviniente, delito, nombre/apellido/DNI, teléfono.
+Criterio económico: hasta 2 SMVM. Asesoran a todas y luego se evalúa.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["legal", "patrocinio", "civil", "alimentos", "divorcio", "gratuito"], "createdAt": "2026-01-01"}, {"id": 9, "codigo": "A5e", "title": "Patrocinio Penal – Ministerio de Justicia CABA (Hospital de Derechos)", "description": "Sede: Av. Rivadavia 2690 (Hospital de Derechos).
+Derivación: Mariana envía mail a patrocinio.victimas@buenosaires.gob.ar con: Nº de caso, fiscalía interviniente, delito, nombre/apellido/DNI, teléfono.
+En casos URGENTES se podrá llamar directamente al referente del área,EUGENIA GAUBECA que es la GERENTA Operativa (2025/2026) , para lograr celeridad en la intervención SIEMPRE JUSTIFICANDO EL PEDIDO, al cel: 1141901967 (celu de la gerenta operativa Gaubeca)
+M. Eugenia Gaubeca Molina
+Gerente Operativa - Patrocinio Jurídico Penal Gratuito para Víctimas
+\"Eugenia Gaubeca\" <eugenia.patrocinio.ssjus@gmail.com>
+
 
 ⭐ VIOLENCIA DE GÉNERO: SIN REQUISITO ECONÓMICO para cualquier delito.
 SIN REQUISITO ECONÓMICO: delitos contra la vida, libertad (incl. amenazas) o integridad sexual.
@@ -124,60 +167,40 @@ CON REQUISITO ECONÓMICO: otros delitos → ingresos ≤ 2 SMVM.
 
 Horarios: Mar/Mié/Vie 13-15hs (Hospital de Derechos); Lun/Jue 16-18hs (Charcas).
 
-🚨 URGENTE: Eugenia Gaubeca – 1141901967 / eugenia.patrocinio.ssjus@gmail.com",
-    generalTags:["vg"], specificTags:["legal", "patrocinio", "penal", "amenazas", "querella", "gratuito"], createdAt:"2026-01-01" },
-  { id:10, codigo:"A6", title:"Ayuda Económica de Emergencia (Res. FG 311/18)",
-    description:"Para gastos urgentes que no pueden ser afrontados por otros organismos. Carácter excepcional y limitado a lo indispensable.
+🚨 URGENTE: Eugenia Gaubeca – 1141901967 / eugenia.patrocinio.ssjus@gmail.com", "generalTags": ["vg", "disc", "pm"], "specificTags": ["legal", "patrocinio", "penal", "amenazas", "querella", "gratuito"], "createdAt": "2026-01-01"}, {"id": 10, "codigo": "A6", "title": "Ayuda Económica de Emergencia (Res. FG 311/18)", "description": "Para gastos urgentes que no pueden ser afrontados por otros organismos. Carácter excepcional y limitado a lo indispensable.
 
 Documentación: Formulario PDF interactivo + Dictamen LU + Recibo. Si es traslado: ticket o recibo de remise/similar.
 
 GRUPOS PRIORITARIOS: niños/as, personas mayores, mujeres con hijos menores, personas con discapacidad, enfermedades graves, situación de calle.
 
-Cubre: habitación, alimentación, vestimenta, medicación, transporte urgente.",
-    generalTags:["vg", "disc", "pm"], specificTags:["urgente", "económico", "habitacional"], createdAt:"2026-01-01" },
-  { id:11, codigo:"A7", title:"Turnos Médicos en Hospitales",
-    description:"Mariana carga el pedido en la planilla con los datos requeridos. Ahí aparece si fue dado el turno y también en el chat de Coordinación de Turnos por WhatsApp.
+Cubre: habitación, alimentación, vestimenta, medicación, transporte urgente.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["urgente", "económico", "habitacional"], "createdAt": "2026-01-01"}, {"id": 11, "codigo": "A7", "title": "Turnos Médicos en Hospitales", "description": "Mariana carga el pedido en la planilla con los datos requeridos:
+Nombre y apellido, DNI, Celular, dirección, barrio, fecha de nacimiento, diagnostico si hay, orden si hay, tipo de consulta, hospital.
+Ahí aparece si fue dado el turno y también en el chat de Coordinación de Turnos por WhatsApp.
 
 Planilla: https://docs.google.com/spreadsheets/d/1XeT8Ifas6LxoOEa6icCOzUnJjeOa0hMWeQ2cJnWxTW8/
 
-Contacto Florencia (gerenta): por WhatsApp en el chat de coordinación.",
-    generalTags:["disc", "pm"], specificTags:["salud", "médico", "turno"], createdAt:"2026-01-01" },
-  { id:12, codigo:"A8", title:"Vacantes Escolares y Centros de Primera Infancia (CPI)",
-    description:"VACANTES ESCOLARES: Pedido por TAD.
+Contacto Florencia (gerenta): por WhatsApp en el chat de coordinación.", "generalTags": ["disc", "pm"], "specificTags": ["salud", "médico", "turno", "violencia familiar", "asistencia social", "psicológico"], "createdAt": "2026-01-01"}, {"id": 12, "codigo": "A8", "title": "Vacantes Escolares y Centros de Primera Infancia (CPI)", "description": "VACANTES ESCOLARES: Pedido por TAD.
 
 CPI – Ministerio de Desarrollo Humano y Hábitat:
 Mail: cpi@buenosaires.gob.ar
 Directora: mariadelosangelesfava@gmail.com
 Gerenta operativa: Valeria Lista – Vmlista@buenosaires.gob.ar / +54 9 11 2387-5869
 
-Mariana se contacta por chat con Valeria, que generalmente pide mail. Puede complementarse subiendo a TAD.",
-    generalTags:[], specificTags:["educación", "niños/as", "primera infancia", "TAD"], createdAt:"2026-01-01" },
-  { id:13, codigo:"A9a", title:"Subsidio Habitacional – Violencia de Género (DGM / CIM)",
-    description:"Tel coordinación del programa: 43072540.
+Mariana se contacta por chat con Valeria, que generalmente pide mail. Puede complementarse subiendo a TAD.", "generalTags": ["vg", "disc", "pm"], "specificTags": ["educación", "niños/as", "primera infancia", "TAD"], "createdAt": "2026-01-01"}, {"id": 13, "codigo": "A9a", "title": "Subsidio Habitacional – Violencia de Género (DGM / CIM)", "description": "Tel coordinación del programa: 43072540.
 
 Requisitos: El informe social firmado por TS puede ser del MPF. Residencia en CABA de 2 años. Negativa ANSES.
 
-El CIM también tramita el subsidio si evalúan que procede.",
-    generalTags:["vg"], specificTags:["habitacional", "subsidio"], createdAt:"2026-01-01" },
-  { id:14, codigo:"A9b", title:"Ingreso a Dispositivos Prov. Bs As – Equipo Provincial de Dispositivos Territoriales",
-    description:"Enviar informe a: redhpi@ministeriodelasmujeres.gba.gob.ar y redhogarespba@gmail.com
+El CIM también tramita el subsidio si evalúan que procede.
+
+Si el subsidio no cubre todo el alquiler y la persona tiene discapacidad se puede hacer amparo con la Defensoria del Pueblo de CABA, area discapcidad.", "generalTags": ["vg", "disc"], "specificTags": ["habitacional", "subsidio"], "createdAt": "2026-01-01"}, {"id": 14, "codigo": "A9b", "title": "Ingreso a Dispositivos Prov. Bs As – Equipo Provincial de Dispositivos Territoriales", "description": "Enviar informe a: redhpi@ministeriodelasmujeres.gba.gob.ar y redhogarespba@gmail.com
 
 Datos requeridos: datos personales + DNI adjunto, situación de violencia (historicidad, red familiar, causa penal/IPP), intervenciones previas, consentimiento, programas sociales, tratamiento médico, datos del agresor. Especificar qué dirección solicita intervención.
 
-Tels: Lun-Vie 9-15hs: (221) 675-1179 / Fines de semana y feriados: (221) 673-4008",
-    generalTags:["vg"], specificTags:["habitacional", "refugio", "derivación", "provincia"], createdAt:"2026-01-01" },
-  { id:15, codigo:"A9c", title:"Personas en Situación de Calle – BAP Paradores (CIS)",
-    description:"Mail para solicitar ingresos: centrosdeinclusionsocial@buenosaires.gob.ar",
-    generalTags:[], specificTags:["habitacional", "calle", "parador", "urgente"], createdAt:"2026-01-01" },
-  { id:16, codigo:"A9d", title:"Asistencia en Desalojos (MPD Nación y CAJ Once)",
-    description:"CAJ de Once: con turno previo → cajevaperon@gmail.com
+Tels: Lun-Vie 9-15hs: (221) 675-1179 / Fines de semana y feriados: (221) 673-4008", "generalTags": ["vg"], "specificTags": ["habitacional", "refugio", "derivación", "provincia"], "createdAt": "2026-01-01"}, {"id": 15, "codigo": "A9c", "title": "Personas en Situación de Calle – BAP Paradores (CIS)", "description": "Mail para solicitar ingresos: centrosdeinclusionsocial@buenosaires.gob.ar", "generalTags": [], "specificTags": ["habitacional", "calle", "parador", "urgente"], "createdAt": "2026-01-01"}, {"id": 16, "codigo": "A9d", "title": "Asistencia en Desalojos (MPD Nación y CAJ Once)", "description": "CAJ de Once: con turno previo → cajevaperon@gmail.com
 
 MPD Nación – Asistencia a Personas Involucradas en Desalojo:
 Mail: dapid@jusbaires.gob.ar (Directora: Macarena Gallarreta)
-Sede: Lavalle 369, Piso 1°. Contacto: Luis Valsecchi / 5297-7857 / 155-817-1373",
-    generalTags:[], specificTags:["habitacional", "desalojo", "legal", "urgente"], createdAt:"2026-01-01" },
-  { id:17, codigo:"A10", title:"SEDRONAR / Adicciones – Línea 141, CAI, DTC",
-    description:"LÍNEA 141: Contención y derivación. Confidencial. 24hs, 365 días. Nacional.
+Sede: Lavalle 369, Piso 1°. Contacto: Luis Valsecchi / 5297-7857 / 155-817-1373", "generalTags": [], "specificTags": ["habitacional", "desalojo", "legal", "urgente"], "createdAt": "2026-01-01"}, {"id": 17, "codigo": "A10", "title": "SEDRONAR / Adicciones – Línea 141, CAI, DTC", "description": "LÍNEA 141: Contención y derivación. Confidencial. 24hs, 365 días. Nacional.
 
 CAI (Centro de Atención Inmediata): Sarmiento 546 / Tel: (011) 4320-1200 Opción 3 / cai@sedronar.gob.ar / Lun-Vie 9-20hs. Primera entrevista de evaluación y derivación. Reciben oficios judiciales.
 ⚠️ Pocas instituciones para mujeres; menos aún para mujeres con niños/as o personas LGBT.
@@ -185,57 +208,36 @@ CAI (Centro de Atención Inmediata): Sarmiento 546 / Tel: (011) 4320-1200 Opció
 Si vive en CABA: acercarse sin turno o llamar al 108 (adicciones CABA).
 
 DTC: Para personas que no requieren internación.
-CAC: Organizaciones sociedad civil. Atienden situaciones de calle y alta vulneración.",
-    generalTags:[], specificTags:["salud", "adicciones", "urgente", "24hs", "derivación", "judicial"], createdAt:"2026-01-01" },
-  { id:18, codigo:"B1", title:"ANDIS – Orientación y Asesoramiento en Discapacidad",
-    description:"Dirección: Hipólito Yrigoyen 1447, CABA. Tel: 0800-555-3472. Lun-Vie 9-16:30hs.
+CAC: Organizaciones sociedad civil. Atienden situaciones de calle y alta vulneración.", "generalTags": [], "specificTags": ["salud", "adicciones", "urgente", "24hs", "derivación", "judicial"], "createdAt": "2026-01-01"}, {"id": 18, "codigo": "B1", "title": "ANDIS – Orientación y Asesoramiento en Discapacidad", "description": "Dirección: Hipólito Yrigoyen 1447, CABA. Tel: 0800-555-3472. Lun-Vie 9-16:30hs.
 Web: www.argentina.gob.ar/andis
 
 En la Defensoría del Pueblo hay un asesor de ANDIS todos los miércoles.
 
 Contacto para pensiones: ggionferri@andis.gob.ar (Georgina Gionferri Todarelli, Directora de Despliegue Territorial).
 
-⚠️ ANDIS fue disuelta en 2025 — verificar estado actual del organismo.",
-    generalTags:["disc"], specificTags:["orientación", "pensión", "económico"], createdAt:"2026-01-01" },
-  { id:19, codigo:"B2", title:"CUD – Certificado Único de Discapacidad + COPIDIS",
-    description:"Trámite CUD: https://www.argentina.gob.ar/como-obtener-el-certificado-unico-de-discapacidad-cud
+⚠️ ANDIS fue disuelta en 2025 — verificar estado actual del organismo.", "generalTags": ["disc"], "specificTags": ["orientación", "pensión", "económico"], "createdAt": "2026-01-01"}, {"id": 19, "codigo": "B2", "title": "CUD – Certificado Único de Discapacidad + COPIDIS", "description": "Trámite CUD: https://www.argentina.gob.ar/como-obtener-el-certificado-unico-de-discapacidad-cud
 
 COPIDIS GCABA: Balcarce 370 / Tel: 43428064
 
 Programa APVI (Apoyo para la Vida Independiente): josefinabill@gmail.com / apvi.copidis@gmail.com
 Requisitos: DNI con domicilio CABA, CUD vigente, edad 18-60 años.
 
-Centros de Inclusión Social: Alojamiento transitorio 24hs para personas autoválidas con discapacidad leve y CUD. Hasta 24 meses. Para personas 18-59 años, solos/as o con hijos menores.",
-    generalTags:["disc"], specificTags:["certificado", "habitacional", "vida independiente"], createdAt:"2026-01-01" },
-  { id:20, codigo:"B3", title:"Intérpretes LSA – Personas Sordas",
-    description:"Mail: inclusion@fiscalias.gob.ar (consultar previamente con Amalia si están disponibles).
+Centros de Inclusión Social: Alojamiento transitorio 24hs para personas autoválidas con discapacidad leve y CUD. Hasta 24 meses. Para personas 18-59 años, solos/as o con hijos menores.", "generalTags": ["disc"], "specificTags": ["certificado", "habitacional", "vida independiente"], "createdAt": "2026-01-01"}, {"id": 20, "codigo": "B3", "title": "Intérpretes LSA – Personas Sordas", "description": "Mail: inclusion@fiscalias.gob.ar (consultar previamente con Amalia si están disponibles). Intervienen AMALIA (interprete oyente) y CARLA (mediadora sorda)
 
 En enero/febrero pueden estar de vacaciones → hablar con Soledad o quien esté; ellos contratan un intérprete externo.
 
-Adjuntar la denuncia en el mail para dar contexto.",
-    generalTags:["disc"], specificTags:["LSA", "intérprete", "accesibilidad"], createdAt:"2026-01-01" },
-  { id:21, codigo:"B4", title:"Discapacidad Visual – ASAC y Fundación Nano",
-    description:"ASAC (Asociación de Ayuda al Ciego): https://asac.org.ar/
+Adjuntar la denuncia en el mail para dar contexto. Siempre hay que mandar mail", "generalTags": ["disc", "vg"], "specificTags": ["LSA", "intérprete", "accesibilidad"], "createdAt": "2026-01-01"}, {"id": 21, "codigo": "B4", "title": "Discapacidad Visual – ASAC y Fundación Nano", "description": "ASAC (Asociación de Ayuda al Ciego): https://asac.org.ar/
 Rehabilitación visual, Centro de Día y Hogar.
 
 Fundación Nano: http://fundacionnano.org.ar/
 Consultorio social y Hogar.
 
-Nota: La terapia de rehabilitación visual debe pedirse a cada obra social. Sin cobertura: derivar a estas instituciones.",
-    generalTags:["disc"], specificTags:["discapacidad visual", "rehabilitación", "hogar", "centro de día"], createdAt:"2026-01-01" },
-  { id:22, codigo:"B5", title:"Discapacidad Intelectual – ASDRA (Síndrome de Down)",
-    description:"Web: https://www.asdra.org.ar/
+Nota: La terapia de rehabilitación visual debe pedirse a cada obra social. Sin cobertura: derivar a estas instituciones.", "generalTags": ["disc"], "specificTags": ["discapacidad visual", "rehabilitación", "hogar", "centro de día"], "createdAt": "2026-01-01"}, {"id": 22, "codigo": "B5", "title": "Discapacidad Intelectual – ASDRA (Síndrome de Down)", "description": "Web: https://www.asdra.org.ar/
 
 1) Inclusión laboral: Trabajo conjunto con familias, empleadores e instituciones de capacitación.
 
-2) Programa para la Vida Independiente: inscripciones en vidaindependiente.ASDRA@gmail.com",
-    generalTags:["disc"], specificTags:["intelectual", "laboral", "vida independiente"], createdAt:"2026-01-01" },
-  { id:23, codigo:"B6", title:"GRAVIDA – Acompañamiento a Embarazadas y Mujeres con Bebés",
-    description:"Fundación que acompaña a embarazadas y mujeres con niños/as hasta 1 año.
-Web: https://gravida.org.ar/",
-    generalTags:["vg"], specificTags:["salud", "maternidad", "embarazo", "niños/as", "fundación"], createdAt:"2026-01-01" },
-  { id:24, codigo:"C1", title:"Programa Proteger – Personas Mayores + Subsidio Vivir en Casa",
-    description:"Zonas y referentes (2026):
+2) Programa para la Vida Independiente: inscripciones en vidaindependiente.ASDRA@gmail.com", "generalTags": ["disc"], "specificTags": ["intelectual", "laboral", "vida independiente"], "createdAt": "2026-01-01"}, {"id": 23, "codigo": "B6", "title": "GRAVIDA – Acompañamiento a Embarazadas y Mujeres con Bebés", "description": "Fundación que acompaña a embarazadas y mujeres con niños/as hasta 1 año.
+Web: https://gravida.org.ar/", "generalTags": ["vg"], "specificTags": ["salud", "maternidad", "embarazo", "niños/as", "fundación"], "createdAt": "2026-01-01"}, {"id": 24, "codigo": "C1", "title": "Programa Proteger – Personas Mayores", "description": "Zonas y referentes (2026):
 • Comunas 1 y 4: Ale y Flor
 • Comunas 5 y 3: Lucas y Florencia
 • Comunas 6 y 7: Paula y Ezequiel
@@ -243,24 +245,12 @@ Web: https://gravida.org.ar/",
 
 Subgerenta: Alejandra Vázquez – +54 9 11 5637-5744
 
-SUBSIDIO VIVIR EN CASA (a marzo 2026: $10.000 a $140.000):
-De la persona: DNI, último recibo de haberes, certificado de domicilio.
-De la propiedad: factura/recibo de alquiler con detalles, expensas y servicios.
-Del propietario: ABL, DNI.
-
-Docs en PDF individuales. Instancias: 1) Presentación de documentación. 2) Entrevista en Belgrano 858.
-
-Cobro: Banco Ciudad (sucursal Corrientes y Larrea). Rendición mensual en Belgrano 858 desde 7 días hábiles del cobro.",
-    generalTags:["pm"], specificTags:["habitacional", "subsidio", "económico"], createdAt:"2026-01-01" },
-  { id:25, codigo:"C2", title:"CAREF – Migrantes y Refugiados/as",
-    description:"Asesoramiento, orientación y asistencia social y jurídica GRATUITA para migrantes, refugiados/as y solicitantes de asilo.
+Se consulta en el mapa que equipo interviene en el caso para poder intercambiar entre referentes, opiniones.", "generalTags": ["pm", "vg"], "specificTags": ["habitacional", "subsidio", "económico"], "createdAt": "2026-01-01"}, {"id": 25, "codigo": "C2", "title": "CAREF – Migrantes y Refugiados/as", "description": "Asesoramiento, orientación y asistencia social y jurídica GRATUITA para migrantes, refugiados/as y solicitantes de asilo.
 
 Sin turno: Lunes 14-16hs / Miércoles 9:30-11:30hs.
 Juan Bautista Alberdi 2236, CABA.
 
-Turno: recepcion@caref.org.ar / (+54 9 11) 5797-3566 (solo WhatsApp).",
-    generalTags:[], specificTags:["legal", "migrantes", "refugiados", "asistencia social", "gratuito"], createdAt:"2026-01-01" },
-];
+Turno: recepcion@caref.org.ar / (+54 9 11) 5797-3566 (solo WhatsApp).", "generalTags": [], "specificTags": ["legal", "migrantes", "refugiados", "asistencia social", "gratuito"], "createdAt": "2026-01-01"}];
 
 const MANAGER_PASSWORD = "admin123";
 
@@ -512,24 +502,24 @@ function App() {
 
   // Exportar HTML completo con todos los datos embebidos
   const exportHTML = () => {
-    const src = document.querySelector("script[type='text/babel']").textContent;
-    const rJson = JSON.stringify(resources);
-    const gJson = JSON.stringify(generalTagDefs);
-    const sJson = JSON.stringify(specificTagPool);
-    const newSrc = src
-      .replace(/const DEFAULT_GENERAL_TAGS = \[[\s\S]*?\];/, "const DEFAULT_GENERAL_TAGS = " + gJson + ";")
-      .replace(/const DEFAULT_SPECIFIC_TAGS = \[[\s\S]*?\];/, "const DEFAULT_SPECIFIC_TAGS = " + sJson + ";")
-      .replace(/const DEFAULT_RESOURCES = \[[\s\S]*?\];/, "const DEFAULT_RESOURCES = " + rJson + ";");
-    const html = "<!DOCTYPE html>\n" + document.documentElement.outerHTML.replace(
-      document.querySelector("script[type='text/babel']").textContent,
-      newSrc
-    );
-    const blob = new Blob([html], {type:"text/html;charset=utf-8"});
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "recursario-edid.html";
-    a.click();
-    setSaveMsg("✓ HTML exportado"); setTimeout(() => setSaveMsg(""), 3000);
+    fetch(window.location.href)
+      .then(r => r.text())
+      .then(html => {
+        const rJson = JSON.stringify(resources);
+        const gJson = JSON.stringify(generalTagDefs);
+        const sJson = JSON.stringify(specificTagPool);
+        const newHtml = html
+          .replace(/const DEFAULT_GENERAL_TAGS = \[[\s\S]*?\];/, "const DEFAULT_GENERAL_TAGS = " + gJson + ";")
+          .replace(/const DEFAULT_SPECIFIC_TAGS = \[[\s\S]*?\];/, "const DEFAULT_SPECIFIC_TAGS = " + sJson + ";")
+          .replace(/const DEFAULT_RESOURCES = \[[\s\S]*?\];/, "const DEFAULT_RESOURCES = " + rJson + ";");
+        const blob = new Blob([newHtml], {type:"text/html;charset=utf-8"});
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "index.html";
+        a.click();
+        setSaveMsg("✓ HTML exportado"); setTimeout(() => setSaveMsg(""), 3000);
+      })
+      .catch(() => setSaveMsg("❌ Error al exportar"));
   };
 
   const hasFilters = search || filterGeneral || filterSpecific.length > 0;
