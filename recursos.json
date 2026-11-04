@@ -82,6 +82,26 @@
   ],
   "resources": [
     {
+      "id": 1793811036656,
+      "title": "CJM – Equipo de casos complejos",
+      "codigo": "",
+      "description": "Acompañan casos que se inician en CJM. Se fijan objetivos y la intervención/seguimiento se cierra cuando se cumplen (por ej. una derivación a patrocinio, sacar el DNI, etc.).\nPueden seguir el caso tanto en civil como en penal.\nRegistran las dificultades en los organismos para luego elevarlas.\nTienen dos vehículos.\nTienen un subsidio que sale de la caja mensual de todo el CJM.\n\nDenuncia:\n• En el CJM de Caballito hay funcionaria del MPF.\n• En las demás sedes, primero asesora el equipo; si la persona quiere denunciar, hacen IDR y luego la pasan a denuncia ante el MPF (la llevan).\n\nBotón antipánico: en La Boca, Lugano y Caballito se entrega en el momento.",
+      "generalTags": [
+        "vg",
+        "disc",
+        "pm"
+      ],
+      "specificTags": [
+        "denuncia",
+        "derivación",
+        "civil",
+        "penal",
+        "subsidio",
+        "dni"
+      ],
+      "createdAt": "2026-11-04"
+    },
+    {
       "id": 1784045015278,
       "title": "RENAPER- DNI en DOMICILIO",
       "codigo": "",
