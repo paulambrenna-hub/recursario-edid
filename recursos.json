@@ -24,6 +24,7 @@
     "LSA",
     "TAD",
     "accesibilidad",
+    "acompañamiento",
     "adicciones",
     "alimentos",
     "amenazas",
@@ -92,12 +93,12 @@
         "pm"
       ],
       "specificTags": [
+        "acompañamiento",
         "denuncia",
         "derivación",
         "civil",
         "penal",
-        "subsidio",
-        "dni"
+        "subsidio"
       ],
       "createdAt": "2026-11-04"
     },
