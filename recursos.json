@@ -84,7 +84,7 @@
   "resources": [
     {
       "id": 1794584035593,
-      "title": "DERIVACIONES CIM FORMULARIO",
+      "title": "DGM – CIMS (Dirección General de la Mujer) Derivación",
       "codigo": "",
       "description": "Como resultado de las reuniones interzonales mantenidas y con el objetivo de fortalecer la calidad de la información, se acordó este circuito para las derivaciones a los CIMs.\nA partir del día de la fecha, las derivaciones a los CIMs se realizarán a través del siguiente link:\n\nhttps://forms.gle/RAESRn52bNpfrXrH9",
       "generalTags": [
@@ -477,27 +477,6 @@
         "denuncia",
         "interdisciplinario",
         "niños/as"
-      ],
-      "createdAt": "2026-01-01"
-    },
-    {
-      "id": 4,
-      "codigo": "A4",
-      "title": "DGM – CIMS (Dirección General de la Mujer)",
-      "description": "Derivación por TAD. Se arma el word modelo de CIMs, se envia por Correo a MARIAN y ella lo pasa a PDF lo  junta con la denuncia e informes existentes, ese pdf se lo manda a la referente y ella lo sube a TAD.\nSe carga en Kiwi derivación Psicológica. \n\nHay un word en el drive con el listado de CIMS actualizado",
-      "generalTags": [
-        "vg",
-        "disc",
-        "pm"
-      ],
-      "specificTags": [
-        "derivación",
-        "TAD",
-        "habitacional",
-        "civil",
-        "patrocinio",
-        "legal",
-        "psicológico"
       ],
       "createdAt": "2026-01-01"
     },
