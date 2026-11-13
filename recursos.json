@@ -83,6 +83,24 @@
   ],
   "resources": [
     {
+      "id": 1794584035593,
+      "title": "DERIVACIONES CIM FORMULARIO",
+      "codigo": "",
+      "description": "Como resultado de las reuniones interzonales mantenidas y con el objetivo de fortalecer la calidad de la información, se acordó este circuito para las derivaciones a los CIMs.\nA partir del día de la fecha, las derivaciones a los CIMs se realizarán a través del siguiente link:\n\nhttps://forms.gle/RAESRn52bNpfrXrH9",
+      "generalTags": [
+        "vg",
+        "disc",
+        "pm"
+      ],
+      "specificTags": [
+        "derivación",
+        "psicológico",
+        "patrocinio",
+        "legal"
+      ],
+      "createdAt": "2026-11-13"
+    },
+    {
       "id": 1793811036656,
       "title": "CJM – Equipo de casos complejos",
       "codigo": "",
